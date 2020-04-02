@@ -8,12 +8,25 @@ import { FormsModule } from '@angular/forms'
 })
 export class AppComponent {
   title = 'Todos';
-  todoList: any[] = []
+  todoList: any[] = [];
+  todoTitle: string;
 
   ngOnInit() {
-    this.todoList = [{ title: 'Install Angular CLI', isDone: false }
-    ];
+    this.todoTitle = '';
+    this.todoList = [{ title: 'Install Angular CLI', isDone: false }];
   }
+
+   // adds a todo to our list
+   addTodo():void {
+    this.todoList.push({
+      title: this.todoTitle,
+      isDone: false
+    });
+    
+    // resets our todoTitle variable to an empty string
+    this.todoTitle = '';
+  }
+
   // a method to delete an item
   deleteTodo(todo:any) {
     const index = this.todoList.findIndex(todoItem => todoItem === todo);
