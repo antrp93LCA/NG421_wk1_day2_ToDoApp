@@ -13,6 +13,11 @@ export class AppComponent {
     this.todoList = [{ title: 'Install Angular CLI', isDone: false }
     ];
   }
+  // a method to delete an item
+  deleteTodo(todo:any) {
+    const index = this.todoList.findIndex(todoItem => todoItem === todo);
+    this.todoList.splice(index, 1);
+  }
 
 
 }
