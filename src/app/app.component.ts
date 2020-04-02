@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'NG421wk1day1ToDoApp';
+  title = 'Todos';
+  todoList: any[] = []
+
+  ngOnInit() {
+    this.todoList = [{ title: 'Install Angular CLI', isDone: false }
+    ];
+  }
+
+
 }
+
+
+
+
+
