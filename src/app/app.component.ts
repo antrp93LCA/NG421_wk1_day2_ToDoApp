@@ -10,10 +10,11 @@ export class AppComponent {
   title = 'Todos';
   todoList: any[] = [];
   todoTitle: string;
+  
 
   ngOnInit() {
     this.todoTitle = '';
-    this.todoList = [{ title: 'Install Angular CLI', isDone: false }];
+    this.todoList = [{ title: 'Install Angular CLI', isDone: false, date: new Date()}];
   }
 
    // adds a todo to our list
