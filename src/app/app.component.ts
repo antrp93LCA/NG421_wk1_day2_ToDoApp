@@ -14,14 +14,15 @@ export class AppComponent {
 
   ngOnInit() {
     this.todoTitle = '';
-    this.todoList = [{ title: 'Install Angular CLI', isDone: false, date: new Date()}];
+    this.todoList = [{ title: 'Install Angular CLI', isDone: false, todoDate: new Date()}];
   }
 
    // adds a todo to our list
    addTodo():void {
     this.todoList.push({
       title: this.todoTitle,
-      isDone: false
+      isDone: false,
+      todoDate: Date.now()
     });
     
     // resets our todoTitle variable to an empty string
@@ -32,6 +33,14 @@ export class AppComponent {
   deleteTodo(todo:any) {
     const index = this.todoList.findIndex(todoItem => todoItem === todo);
     this.todoList.splice(index, 1);
+  }
+
+  // a method to cross out an item
+  completed(todo: any){
+    const index = this.todoList.findIndex(todoItem => todoItem === todo);
+    this.todoList[index].isDone=!this.todoList[index].isDone;
+    console.log(this.todoList[index].isDone);
+    
   }
 
 
